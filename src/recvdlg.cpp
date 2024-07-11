@@ -312,7 +312,7 @@ BOOL TRecvDlg::EvCreate(LPARAM lParam)
 	recvHead.CreateTipWnd(U8toWs(head));
 
 	SetDlgIcon(hWnd);
-	recvHead.SetWindowTextU8(head);
+	recvHead.SetWindowTextU8(msg.hostSub.u.userName);
 
 	UINT	rtitle_id = IDS_UNICAST;
 	if (msg.command & IPMSG_AUTORETOPT) {

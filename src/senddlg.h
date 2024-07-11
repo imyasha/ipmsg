@@ -10,6 +10,8 @@
 
 #ifndef SENDDLG_H
 #define SENDDLG_H
+#include <string>
+#include <cstring>
 
 class SendEntry;
 class TRecvDlg;

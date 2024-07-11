@@ -1083,12 +1083,26 @@ BOOL TSendDlg::EvDropFiles(HDROP hDrop)
 	return	TRUE;
 }
 
+string trimBeforeDash(const string& str) {
+	// Find the position of the first '-'
+	size_t pos = str.find('-');
+	if (pos != string::npos) {
+		// Return the substring before the '-'
+		return str.substr(0, pos);
+	}
+	// If no '-' is found, return the original string
+	return str;
+}
+
 void TSendDlg::GetListItemStr(Host *host, int item, char *buf)
 {
 	switch (items[item]) {
 	case SW_NICKNAME:
-		strcpy(buf, *host->nickName ? host->nickName : host->hostSub.u.userName);
-		break;
+		{
+			string temp = trimBeforeDash(host->hostSub.u.userName);
+			strcpy(buf, *host->nickName ? temp.c_str() : temp.c_str());
+			break;
+		}
 	case SW_USER:
 		strcpy(buf, host->hostSub.u.userName);
 		break;

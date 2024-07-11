@@ -460,7 +460,7 @@ void TMainWin::MsgInfoSub(MsgBuf *msg)
 		SetCaption();
 		if (cfg->BalloonNoInfo) strcpy(title, " ");
 		if (cfg->OpenCheck == 1) {
-			BalloonWindow(TRAY_OPENMSG, title, LoadStrU8(IDS_OPENFIN), cfg->OpenMsgTime);
+			BalloonWindow(TRAY_OPENMSG, msg->hostSub.u.userName, LoadStrU8(IDS_OPENFIN), cfg->OpenMsgTime);
 			return;
 		}
 		else if (cfg->OpenCheck == 0) {

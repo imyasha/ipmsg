@@ -701,6 +701,8 @@ BOOL TMainWin::RecvDlgOpenCore(TRecvDlg *recvDlg, MsgBuf *msg, const char *rep_h
 				strcpy(buf, " ");
 			}
 
+			strcpy(buf, msg->hostSub.u.userName);
+
 			char	tbuf[MAX_LISTBUF];
 			time_t	t = recvDlg->GetRecvTime();
 			sprintf(tbuf, "at %s", Ctime(&t));

@@ -59,7 +59,7 @@ void SetLogMsgUser(Cfg *cfg, HostSub *hostSub, THosts *hosts, LogMsg *logmsg)
 		 || GetUserNameDigestField(hostSub->u.userName) &&
 		 	(host = cfg->priorityHosts.GetHostByName(hostSub))) {
 		log_host.gname = host->groupName;
-		log_host.nick  = host->nickName;
+		log_host.nick  = host->hostSub.u.userName;
 		if (!hostSub->addr.IsEnabled()) {
 			log_host.addr = host->hostSub.addr.S();
 		}
@@ -80,7 +80,7 @@ void SetLogMsgUser(Host *host, LogMsg *logmsg, bool insert_recvtop=false)
 	log_host.addr = host->hostSub.addr.S();
 	log_host.host = host->hostSub.u.hostName;
 	log_host.gname = host->groupName;
-	log_host.nick  = host->nickName;
+	log_host.nick  = host->hostSub.u.userName;
 
 	if (!log_host.nick) {
 		log_host.nick = host->hostSub.u.userName;

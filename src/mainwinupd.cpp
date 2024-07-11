@@ -23,19 +23,19 @@ using namespace std;
 
 void TMainWin::UpdateCheckTimer()
 {
-	if (lastExitTick) return;
+	// if (lastExitTick) return;
 
 
-	time_t	now = time(NULL);
+	// time_t	now = time(NULL);
 
-	if (now - cfg->updateLast > cfg->updateSpan) {
-		DWORD	flags = UPD_BUSYCONFIRM;
-		if (((cfg->updateFlag & Cfg::UPDATE_MANUAL) || !UpdateWritable())
-		) {
-			flags |= UPD_CONFIRM;
-		}
-		UpdateCheck(flags);
-	}
+	// if (now - cfg->updateLast > cfg->updateSpan) {
+	// 	DWORD	flags = UPD_BUSYCONFIRM;
+	// 	if (((cfg->updateFlag & Cfg::UPDATE_MANUAL) || !UpdateWritable())
+	// 	) {
+	// 		flags |= UPD_CONFIRM;
+	// 	}
+	// 	UpdateCheck(flags);
+	// }
 }
 
 BOOL TMainWin::UpdateWritable(BOOL force)
